@@ -17,7 +17,7 @@ The project aims to build a near-real-time data processing system focused on ana
 
 ## Architecture
 
-![image atl](https://github.com/tuankhoi25/Near-real-time-data-pipeline/blob/0a889563ee1131d49af0dd19da8f7743c8d29e16/architecture.png)
+![image atl](https://github.com/tuankhoi25/Near-real-time-data-pipeline/blob/d6054aca249ffaa63b59fbd74f62c0770efec696/architecture.png)
 
 ## Raw Data
 
