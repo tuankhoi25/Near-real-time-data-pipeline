@@ -10,7 +10,7 @@ The project aims to build a near-real-time data processing system focused on ana
 - [**PySpark**](https://spark.apache.org/docs/latest/api/python/index.html)
 - [**Airflow**](https://airflow.apache.org)
 - [**Grafana**](https://grafana.com/)
-- [**Linux**]()
+- [**Linux Command**]()
 - [**MySQL**](https://www.mysql.com/)
 - [**Cassandra**](https://cassandra.apache.org/_/index.html)
 - [**Python**](https://www.python.org/)
@@ -22,7 +22,6 @@ The project aims to build a near-real-time data processing system focused on ana
 ## Raw Data
 
 ```sh
-.
 root
  |-- create_time: string (nullable = false)
  |-- bid: integer (nullable = true)
@@ -55,7 +54,7 @@ root
  |-- vp: string (nullable = true)
  ```
 
-## Transformed Data
+## Processed Data
 
 ```sh
 root
