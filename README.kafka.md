@@ -28,7 +28,7 @@
   $CONFLUENT_HOME/bin/kafka-topics --create --topic events --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
   ```
 
-#  Starts the Kafka Schema Registry service
+#  Start the Kafka Schema Registry service
 - Open new terminal and run this command:
   ```sh
   $CONFLUENT_HOME/bin/schema-registry-start $CONFLUENT_HOME/etc/schema-registry/schema-registry.properties
