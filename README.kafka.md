@@ -71,10 +71,55 @@
     WITH (VALUE_FORMAT='AVRO') AS
       SELECT * FROM events_as_json;
   ```
-#
-## Installing a JDBC driver for the Kafka Connect JDBC connector
-- Installing JDBC driver on local install from this link: https://www.confluent.io/hub/confluentinc/kafka-connect-jdbc
-- Unzip the downloaded file
+# Set-up for Kafka Connect
+## Install Kafka Connect connector plugins
+- Installing connector manually from this link: https://www.confluent.io/hub/confluentinc/kafka-connect-jdbc
+- Extract the ZIP file contents:
   ```sh
   unzip confluentinc-kafka-connect-jdbc-10.8.0.zip
   ```
+- Move the contents to the desired location:
+  ```sh
+  mkdir -p $CONFLUENT_HOME/connectors
+  mv confluentinc-kafka-connect-jdbc-10.8.0 $CONFLUENT_HOME/connectors/
+  ```
+- Add this to the plugin path in your Connect properties file:
+  ```sh
+  echo -e "\nplugin.path=/usr/share/java,$CONFLUENT_HOME/connectors" >> $CONFLUENT_HOME/etc/kafka/connect-standalone.properties
+  ```
+  
+## Installing a JDBC driver for the Kafka Connect JDBC connector
+- Open new terminal. Installing JDBC driver on local:
+  ```sh
+  curl -O https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar
+  ```
+- Move to the desired location:
+  ```sh
+  mv mysql-connector-j-8.3.0.jar $CONFLUENT_HOME/connectors/confluentinc-kafka-connect-jdbc-10.8.0/lib
+  ```
+
+## Start Kafka Connect in standalone mode
+- Open new terminal. Run this command:
+  ```sh
+  connect-standalone $CONFLUENT_HOME/etc/kafka/connect-standalone.properties
+  ```
+
+## Create a JDBC Sink Connector in Kafka Connect
+- Open new terminal. Run this command:
+  ```sh
+  curl -X PUT http://localhost:8083/connectors/sink-jdbc-mysql-01/config \
+         -H "Content-Type: application/json" -d '{
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "connection.url": "jdbc:mysql://localhost:3306/DE_project",
+        "topics": "EVENTS_AS_AVRO",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "io.confluent.connect.avro.AvroConverter",
+        "value.converter.schema.registry.url": "http://localhost:8081",
+        "connection.user": "root",
+        "connection.password": "1",
+        "auto.evolve": true,
+        "auto.create": true,
+        "insert.mode": "insert",
+        "table.name.format": "events"
+    }'
+    ```
