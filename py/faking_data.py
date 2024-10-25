@@ -51,7 +51,7 @@ def main():
     session = cluster.connect(keyspace)
 
     while True:
-        generating_dummy_data(n_records=random.randint(1, 10), session=session, engine=engine)
-        time.sleep(10)
+        generating_dummy_data(n_records=random.randint(1, 50), session=session, engine=engine)
+        time.sleep(5)
 
 main()
