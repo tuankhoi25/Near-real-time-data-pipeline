@@ -5,8 +5,8 @@ from airflow.operators.bash import BashOperator
 with DAG(
     dag_id = "DE_project",
     default_args = {
-        "retries": 3,
-        "retry_delay": timedelta(minutes=5)
+        "retries": 19,
+        "retry_delay": timedelta(minutes=1)
     },
     description = "ETL process",
     start_date = datetime(2024, 10, 25),
@@ -15,7 +15,8 @@ with DAG(
 
     t1 = BashOperator(
         task_id = "ETL",
-        bash_command = "cd ~ && cd airflow && cd py && echo 'Start ETL data' && python3 etl_process.py"
+        bash_command = "cd ~ && cd airflow && cd py && echo 'Start ETL data' && python3 etl_process.py",
+        execution_timeout=timedelta(minutes=30)
     )
 
     t1
