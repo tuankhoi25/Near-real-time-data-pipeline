@@ -77,4 +77,4 @@ root
 
 ## Final Result
 
-![image atl](https://github.com/tuankhoi25/Near-real-time-data-pipeline/blob/0a889563ee1131d49af0dd19da8f7743c8d29e16/architecture.png)
+![Result](Result.png)
