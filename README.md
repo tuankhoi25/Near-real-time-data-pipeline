@@ -17,7 +17,7 @@ The project aims to build a near-real-time data processing system focused on ana
 
 ## Architecture
 
-![image atl](https://github.com/tuankhoi25/Near-real-time-data-pipeline/blob/d6054aca249ffaa63b59fbd74f62c0770efec696/architecture.png)
+<img width="1167" alt="Ảnh màn hình 2024-10-26 lúc 15 11 08" src="https://github.com/user-attachments/assets/a55ccb96-98e7-4e41-869f-47fc34f89226">
 
 ## Raw Data
 
@@ -77,4 +77,4 @@ root
 
 ## Final Result
 
-![Result](Result.png)
+<img width="1432" alt="Result" src="https://github.com/user-attachments/assets/04de8e20-c415-4b34-b62d-2b75bd9f82d4">
