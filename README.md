@@ -58,20 +58,20 @@ root
 
 ```sh
 root
- |-- job_id: integer (nullable = true)
- |-- dates: timestamp (nullable = true)
- |-- hours: integer (nullable = true)
- |-- publisher_id: integer (nullable = true)
- |-- company_id: integer (nullable = true)
- |-- campaign_id: integer (nullable = true)
- |-- group_id: integer (nullable = true)
- |-- disqualified_application: integer (nullable = true)
- |-- qualified_application: integer (nullable = true)
- |-- conversion: integer (nullable = true)
- |-- clicks: integer (nullable = true)
+ |-- job_id: double (nullable = true)
+ |-- dates: varchar(20) (nullable = true)
+ |-- hours: int (nullable = true)
+ |-- publisher_id: double (nullable = true)
+ |-- company_id: int (nullable = true)
+ |-- campaign_id: double (nullable = true)
+ |-- group_id: double (nullable = true)
+ |-- disqualified_application: bigint (nullable = true)
+ |-- qualified_application: bigint (nullable = true)
+ |-- conversion: bigint (nullable = true)
+ |-- clicks: bigint (nullable = true)
  |-- bid_set: double (nullable = true)
  |-- spend_hour: double (nullable = true)
- |-- sources: string (nullable = true)
+ |-- sources: varchar(20) (nullable = true)
  |-- latest_update_time: timestamp (nullable = true)
  ```
 
